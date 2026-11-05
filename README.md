@@ -20,6 +20,10 @@ objects/                         independently loadable models
     refrigerator/
     scale/
     tube_rack/
+  wind-turbine/                  57 wind turbine parts, generated from the turbine model
+    collection.json              wind turbine web-catalogue metadata
+    INVENTORY.md                 every source GLB and the object it went into
+    <id>-<slug>/                 URDF per healthy/faulty state, meshes, placement, notices
 environments/                    assembled scenes and their configuration
   aicor_medical_lab/             room, equipment, placements and sample vessels
 ```
@@ -31,7 +35,8 @@ environments/                    assembled scenes and their configuration
   complete environment, even though it contains individually movable objects.
 - **[Web catalogue](https://sunava.github.io/private_meshes/):** browse all 162
   models, filter articulated or rigid objects, compare available poses and
-  download complete model folders. The Laboratory category includes all five devices.
+  download complete model folders. The Laboratory category includes all five devices;
+  the Wind Turbine category holds the turbine's parts.
 
 Model geometry, joint names, materials and scene placements are preserved by the
 folder reorganisation. The laboratory environment remains a self-contained
@@ -63,6 +68,8 @@ The CRAM/CRAMERA application and the PR2 robot description are separate projects
 changes here do not update their source or packaging configuration automatically.
 
 Run `python3 scripts/validate_resources.py` to check model and scene references.
+With a CRAM environment, `python scripts/check_cram_load.py` loads every wind turbine
+URDF with `URDFParser.from_file(...)`.
 The GitHub Actions workflow validates both asset groups before publishing the
 catalogue. [site/README.md](site/README.md) describes local previews, the catalogue
 build and how to add entries.

@@ -1,7 +1,8 @@
 # Object catalogue
 
-The static catalogue combines `objects/articulated/collection.json` and
-`objects/laboratory/collection.json` with their object folders. It includes
+The static catalogue combines `objects/articulated/collection.json`,
+`objects/laboratory/collection.json` and `objects/wind-turbine/collection.json`
+with their object folders. It includes
 category and Articulated/Rigid filters, full-text search, sorting,
 available rest/inspection previews, joint limits, interaction frames and complete ZIP
 downloads. There is no server, package installation, external CDN or Blender
@@ -62,6 +63,13 @@ for laboratory exports, and the download description lists the available formats
 The builder determines mobility from non-fixed URDF joints and checks the
 laboratory manifest against those joints. Fixed attachment frames do not make
 a model articulated. Existing articulated model URLs and IDs remain stable.
+
+Wind turbine entries in `objects/wind-turbine/collection.json` follow the laboratory
+rules (`LICENSE.txt`, `rights.json` and `metadata.json` required, no Blender project)
+and are generated with their folders by `scripts/export_turbine_parts.py` from the
+turbine model; each fault state is an extra `model_<state>.urdf` in the same folder.
+Render their previews with
+`blender --background --factory-startup --python scripts/render_turbine.py`.
 
 To regenerate the laboratory previews from the actual URDF and GLB assets, run
 Blender 5.2+ (native WebP output) with
