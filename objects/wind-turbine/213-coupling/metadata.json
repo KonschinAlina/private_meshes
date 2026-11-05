@@ -1,0 +1,119 @@
+{
+  "object": "coupling",
+  "rootLink": "fast_shaft_coupling",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "centre of the root mesh's footprint (X/Y bounding-box centre, lowest Z), axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -0.275001,
+      -0.3,
+      0.0
+    ],
+    "max": [
+      0.275,
+      0.3,
+      0.6
+    ]
+  },
+  "links": {
+    "fast_shaft_coupling": "fast_shaft_coupling"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "generator",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "fast_shaft_coupling",
+        "parentLink": "fast_shaft",
+        "joint": {
+          "name": "fast_shaft_coupling_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            -4.311308,
+            0.0,
+            109.496382
+          ],
+          "rpy": [
+            0.0,
+            -0.08726,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            -9.325,
+            0.0,
+            -0.3
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "211-fast_shaft",
+        "originInParentObject": {
+          "xyz": [
+            -0.225,
+            0.0,
+            -0.156
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "disc_pack_cracked": {
+      "urdf": "model_disc_pack_cracked.urdf",
+      "fault": "coupling.disc_pack_cracked",
+      "severity": "high",
+      "description": "Crack through the gearbox-side coupling disc pack, a segment displaced",
+      "replaces": [
+        {
+          "link": "fast_shaft_coupling",
+          "asset": "assets/coupling_cracked.glb"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

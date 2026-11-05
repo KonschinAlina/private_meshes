@@ -230,6 +230,40 @@ class CatalogueBuildTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Missing laboratory/collection.json'):
             builder.read_catalogue(self.root)
 
+    def test_wind_turbine_collection_follows_exported_collection_rules(self):
+        source = self.root / 'objects/wind-turbine'
+        folder = source / '170-blade'
+        for name in ('assets/blade.glb', 'assets/fault.glb', 'README.md', 'NOTICE.md', 'LICENSE.txt',
+                     'rights.json', 'metadata.json', 'renders/rest.webp'):
+            path = folder / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'turbine fixture')
+        (folder / 'model.urdf').write_text(
+            '<robot name="blade"><link name="blade"><visual><geometry>'
+            '<mesh filename="assets/blade.glb"/></geometry></visual></link></robot>')
+        # Fault states are extra URDFs beside model.urdf, not separate catalogue folders.
+        (folder / 'model_crack.urdf').write_text(
+            '<robot name="blade_crack"><link name="blade"><visual><geometry>'
+            '<mesh filename="assets/fault.glb"/></geometry></visual></link></robot>')
+        data = {'categories': [{'key': 'wind-turbine', 'code': 'WTB', 'title': 'Wind Turbine'}],
+                'objects': [{'id': '170', 'folder': '170-blade', 'category': 'wind-turbine', 'joints': [],
+                             'frames': [{'name': 'blade', 'purpose': 'base_origin'}]}]}
+        (source / 'collection.json').write_text(json.dumps(data))
+        builder.build(self.root)
+        obj = json.loads((self.root / 'dist/catalogue.json').read_text())['objects'][1]
+        self.assertEqual(obj['url'], 'models/wind-turbine/170-blade')
+        self.assertEqual(obj['download'], 'downloads/170-blade.zip')
+        with ZipFile(self.root / 'dist' / obj['download']) as archive:
+            self.assertIn('170-blade/model_crack.urdf', archive.namelist())
+        data['objects'][0]['category'] = 'storage'
+        (source / 'collection.json').write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'Unknown category'):
+            builder.read_catalogue(self.root)
+        data['categories'][0]['key'] = data['objects'][0]['category'] = 'turbine'
+        (source / 'collection.json').write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'Category/folder mismatch'):
+            builder.read_catalogue(self.root)
+
     def test_build_versions_are_stable_and_catalogue_changes_refresh_all_requests(self):
         builder.build(self.root)
         names = ('index.html', 'app.js', 'styles.css', 'catalogue.json')

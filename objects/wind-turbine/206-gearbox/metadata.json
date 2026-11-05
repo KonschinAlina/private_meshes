@@ -1,0 +1,110 @@
+{
+  "object": "gearbox",
+  "rootLink": "gearbox",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "the turbine link's origin, which lies on the part, axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -2.7,
+      -1.3,
+      -1.03
+    ],
+    "max": [
+      0.4,
+      1.3,
+      1.48
+    ]
+  },
+  "links": {
+    "gearbox": "gearbox"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "gearbox",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "gearbox",
+        "parentLink": "drivetrain",
+        "joint": {
+          "name": "gearbox_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            -0.728123,
+            0.0,
+            109.558891
+          ],
+          "rpy": [
+            0.0,
+            -0.08726,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            -5.75,
+            0.0,
+            0.0
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "oil_leak_input_seal": {
+      "urdf": "model_oil_leak_input_seal.urdf",
+      "fault": "gearbox.oil_leak_input_seal",
+      "severity": "high",
+      "description": "Worn input shaft seal: oil runs down the front cover and pools on the floor",
+      "overlays": [
+        {
+          "asset": "assets/fault_oil_streak.glb",
+          "link": "gearbox"
+        },
+        {
+          "asset": "assets/fault_oil_puddle.glb",
+          "link": "gearbox"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

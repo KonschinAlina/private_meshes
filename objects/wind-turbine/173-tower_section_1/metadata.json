@@ -1,0 +1,132 @@
+{
+  "object": "tower_section_1",
+  "rootLink": "tower_section_1",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "the turbine link's origin, which lies on the part, axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -3.32,
+      -3.288847,
+      -0.26
+    ],
+    "max": [
+      3.32,
+      3.32,
+      21.625
+    ]
+  },
+  "links": {
+    "tower_section_1": "tower_section_1",
+    "tower_door": "tower_door"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "site",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "tower_section_1",
+        "parentLink": "foundation",
+        "joint": {
+          "name": "tower_section_1_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.06
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.06
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "170-foundation",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.06
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "anchor_nut_corrosion": {
+      "urdf": "model_anchor_nut_corrosion.urdf",
+      "fault": "tower.anchor_nut_corrosion",
+      "severity": "medium",
+      "description": "Corroded anchor nuts in one sector, rust running onto the plinth",
+      "overlays": [
+        {
+          "asset": "assets/fault_anchor_corrosion.glb",
+          "link": "tower_section_1"
+        }
+      ]
+    },
+    "base_coating_damage": {
+      "urdf": "model_base_coating_damage.urdf",
+      "fault": "tower.base_coating_damage",
+      "severity": "low",
+      "description": "Paint damage with rust patches and a rust streak near the tower base",
+      "overlays": [
+        {
+          "asset": "assets/fault_tower_coating.glb",
+          "link": "tower_section_1"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

@@ -13,6 +13,10 @@ from urllib.parse import quote
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
+# Exported collections (all but "articulated") use their name as their only category key.
+COLLECTIONS = ("articulated", "laboratory", "wind-turbine")
+
+
 def local_path(base: Path, value: str) -> Path:
     """Accept only ordinary paths contained in base, never symlinks."""
     path = PurePosixPath(value)
@@ -67,7 +71,7 @@ def read_catalogue(root: Path) -> dict:
     data = {"categories": [], "objects": []}
     categories, ids, public_folders = {}, set(), set()
     # An optional collection is absent only when its entire source directory is absent.
-    for collection in ("articulated", "laboratory"):
+    for collection in COLLECTIONS:
         source = root / "objects" / collection
         if not source.exists() and collection != "articulated":
             continue
@@ -115,7 +119,7 @@ def validate_object(source: Path, collection: str, categories: set, obj: dict,
     folder = local_path(source, obj["folder"])
     if collection == "articulated" and folder.relative_to(source).parts[0] != obj["category"]:
         raise ValueError(f"Category/folder mismatch for {ident}")
-    if collection == "laboratory" and obj["category"] != "laboratory":
+    if collection != "articulated" and obj["category"] != collection:
         raise ValueError(f"Category/folder mismatch for {ident}")
     required_files = ["model.urdf", "README.md", "NOTICE.md"]
     if collection == "articulated":
@@ -128,7 +132,7 @@ def validate_object(source: Path, collection: str, categories: set, obj: dict,
     for file in folder.rglob("*"):
         local_path(folder, file.relative_to(folder).as_posix())
     robot = ET.parse(folder / "model.urdf").getroot()
-    if collection == "laboratory":
+    if collection != "articulated":
         links = {link.attrib["name"] for link in robot.findall("link")}
         if any(frame.get("name") not in links for frame in obj.get("frames", [])):
             raise ValueError(f"Catalogue/URDF frame mismatch for {ident}")

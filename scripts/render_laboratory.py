@@ -43,7 +43,8 @@ def origin_matrix(element):
     return Matrix.Translation(Vector(xyz)) @ Euler(rpy, "XYZ").to_matrix().to_4x4()
 
 
-def link_transforms(robot, opened=False):
+def link_transforms(robot, opened=False, values=None):
+    """``values``: joint name -> position; overrides ``opened`` (upper limits)."""
     joints = robot.findall("joint")
     children = {j.find("child").get("link") for j in joints}
     transforms = {
@@ -61,6 +62,8 @@ def link_transforms(robot, opened=False):
             kind = joint.get("type")
             limit = joint.find("limit")
             value = float(limit.get("upper", "0")) if opened and limit is not None else 0
+            if values is not None:
+                value = values.get(joint.get("name"), 0.0)
             axis_element = joint.find("axis")
             axis = Vector(numbers(axis_element.get("xyz") if axis_element is not None else None, (1, 0, 0)))
             if kind in ("revolute", "continuous"):

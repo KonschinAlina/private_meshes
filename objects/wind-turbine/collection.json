@@ -1,0 +1,2204 @@
+{
+ "categories": [
+  {
+   "key": "wind-turbine",
+   "code": "WTB",
+   "title": "Wind Turbine",
+   "blurb": "Parts of an onshore wind turbine after the IEA 3.4 MW reference design: tower, nacelle, drivetrain, rotor and service equipment, each with its healthy and faulty states.",
+   "added": "2026-10-30",
+   "count": 57
+  }
+ ],
+ "objects": [
+  {
+   "id": "170",
+   "slug": "foundation",
+   "name": "Turbine Foundation",
+   "desc": "Round concrete foundation plinth that the tower base stands on.",
+   "size": [
+    7.8,
+    7.8,
+    0.8
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "foundation",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "turbine foundation",
+    "joints": {},
+    "size_m": [
+     7.8,
+     7.8,
+     0.8
+    ]
+   },
+   "variants": [
+    "healthy",
+    "plinth_crack"
+   ],
+   "variant_of": null,
+   "folder": "170-foundation"
+  },
+  {
+   "id": "171",
+   "slug": "foundation_grout",
+   "name": "Foundation Grout Joint",
+   "desc": "Grout bed between the foundation plinth and the tower's base flange, intact or broken out.",
+   "size": [
+    6.44,
+    6.44,
+    0.06
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "foundation_grout",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "foundation grout joint",
+    "joints": {},
+    "size_m": [
+     6.44,
+     6.44,
+     0.06
+    ]
+   },
+   "variants": [
+    "healthy",
+    "grout_breakout"
+   ],
+   "variant_of": null,
+   "folder": "171-foundation_grout"
+  },
+  {
+   "id": "172",
+   "slug": "foundation_earthing",
+   "name": "Foundation Earthing Strap",
+   "desc": "Earthing strap that bonds the tower base to the foundation's earth electrode, connected or loose.",
+   "size": [
+    0.2331,
+    0.3496,
+    0.14
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "foundation_earthing",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "foundation earthing strap",
+    "joints": {},
+    "size_m": [
+     0.2331,
+     0.3496,
+     0.14
+    ]
+   },
+   "variants": [
+    "healthy",
+    "earthing_disconnected"
+   ],
+   "variant_of": null,
+   "folder": "172-foundation_earthing"
+  },
+  {
+   "id": "173",
+   "slug": "tower_section_1",
+   "name": "Tower Base Section with Door",
+   "desc": "Lowest steel tower section with its base flange and anchor nuts, the upper flange and an entrance door that swings open.",
+   "size": [
+    6.64,
+    6.6088,
+    21.885
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "tower_door_joint",
+     "type": "revolute",
+     "lower": 0.0,
+     "upper": 1.7,
+     "inspect": 1.7
+    }
+   ],
+   "frames": [
+    {
+     "name": "tower_section_1",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "tower_door",
+     "purpose": "hinged_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower base section with door",
+    "joints": {
+     "revolute": 1
+    },
+    "size_m": [
+     6.64,
+     6.6088,
+     21.885
+    ]
+   },
+   "variants": [
+    "healthy",
+    "anchor_nut_corrosion",
+    "base_coating_damage"
+   ],
+   "variant_of": null,
+   "folder": "173-tower_section_1"
+  },
+  {
+   "id": "174",
+   "slug": "tower_section_2",
+   "name": "Tower Section 2",
+   "desc": "Second steel tower section, with flanges at both ends.",
+   "size": [
+    5.938,
+    5.938,
+    32.425
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "tower_section_2",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower section 2",
+    "joints": {},
+    "size_m": [
+     5.938,
+     5.938,
+     32.425
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "174-tower_section_2"
+  },
+  {
+   "id": "175",
+   "slug": "tower_section_3",
+   "name": "Tower Section 3",
+   "desc": "Third steel tower section, with flanges at both ends.",
+   "size": [
+    5.93,
+    5.93,
+    32.425
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "tower_section_3",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower section 3",
+    "joints": {},
+    "size_m": [
+     5.93,
+     5.93,
+     32.425
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "175-tower_section_3"
+  },
+  {
+   "id": "176",
+   "slug": "tower_section_4",
+   "name": "Tower Top Section",
+   "desc": "Top steel tower section, ending at the yaw bearing flange.",
+   "size": [
+    4.36,
+    4.36,
+    21.57
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "tower_section_4",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower top section",
+    "joints": {},
+    "size_m": [
+     4.36,
+     4.36,
+     21.57
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "176-tower_section_4"
+  },
+  {
+   "id": "177",
+   "slug": "yaw_bearing",
+   "name": "Yaw Bearing",
+   "desc": "Slewing ring on the tower top that the nacelle turns on.",
+   "size": [
+    3.24,
+    3.24,
+    0.35
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "yaw_bearing",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "yaw bearing",
+    "joints": {},
+    "size_m": [
+     3.24,
+     3.24,
+     0.35
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "177-yaw_bearing"
+  },
+  {
+   "id": "178",
+   "slug": "platform_1",
+   "name": "Tower Platform 1",
+   "desc": "Grated rest platform under the flange at the top of tower section 1, with railings and openings for the ladder and the service lift.",
+   "size": [
+    5.8077,
+    5.8077,
+    2.15
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "platform_1",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower platform 1",
+    "joints": {},
+    "size_m": [
+     5.8077,
+     5.8077,
+     2.15
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "178-platform_1"
+  },
+  {
+   "id": "179",
+   "slug": "platform_2",
+   "name": "Tower Platform 2",
+   "desc": "Grated rest platform under the flange at the top of tower section 2, with railings and openings for the ladder and the service lift.",
+   "size": [
+    5.8417,
+    5.8417,
+    2.15
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "platform_2",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower platform 2",
+    "joints": {},
+    "size_m": [
+     5.8417,
+     5.8417,
+     2.15
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "179-platform_2"
+  },
+  {
+   "id": "180",
+   "slug": "platform_3",
+   "name": "Tower Platform 3",
+   "desc": "Grated rest platform under the flange at the top of tower section 3, with railings and openings for the ladder and the service lift.",
+   "size": [
+    4.37,
+    4.37,
+    2.15
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "platform_3",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower platform 3",
+    "joints": {},
+    "size_m": [
+     4.37,
+     4.37,
+     2.15
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "180-platform_3"
+  },
+  {
+   "id": "181",
+   "slug": "platform_4",
+   "name": "Tower Platform 4",
+   "desc": "Grated yaw deck at the top of the tower, with railings and openings for the ladder, the service lift and the cable loop.",
+   "size": [
+    3.0759,
+    3.0759,
+    2.15
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "platform_4",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower platform 4",
+    "joints": {},
+    "size_m": [
+     3.0759,
+     3.0759,
+     2.15
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "181-platform_4"
+  },
+  {
+   "id": "182",
+   "slug": "ladder_1",
+   "name": "Tower Ladder 1",
+   "desc": "Ladder with fall-arrest rail, power cables and a wall lamp, running up tower section 1.",
+   "size": [
+    4.1247,
+    4.9316,
+    21.6101
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "ladder_1",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower ladder 1",
+    "joints": {},
+    "size_m": [
+     4.1247,
+     4.9316,
+     21.6101
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "182-ladder_1"
+  },
+  {
+   "id": "183",
+   "slug": "ladder_2",
+   "name": "Tower Ladder 2",
+   "desc": "Ladder with fall-arrest rail, power cables and a wall lamp, running up tower section 2.",
+   "size": [
+    4.1159,
+    4.9411,
+    32.41
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "ladder_2",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower ladder 2",
+    "joints": {},
+    "size_m": [
+     4.1159,
+     4.9411,
+     32.41
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "183-ladder_2"
+  },
+  {
+   "id": "184",
+   "slug": "ladder_3",
+   "name": "Tower Ladder 3",
+   "desc": "Ladder with fall-arrest rail, power cables and a wall lamp, running up tower section 3.",
+   "size": [
+    4.1154,
+    4.7356,
+    32.4117
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "ladder_3",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower ladder 3",
+    "joints": {},
+    "size_m": [
+     4.1154,
+     4.7356,
+     32.4117
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "184-ladder_3"
+  },
+  {
+   "id": "185",
+   "slug": "ladder_4",
+   "name": "Tower Ladder 4",
+   "desc": "Ladder with fall-arrest rail, power cables and a wall lamp, running up tower section 4.",
+   "size": [
+    3.0158,
+    3.2517,
+    21.5722
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "ladder_4",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower ladder 4",
+    "joints": {},
+    "size_m": [
+     3.0158,
+     3.2517,
+     21.5722
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "185-ladder_4"
+  },
+  {
+   "id": "186",
+   "slug": "cable_loop",
+   "name": "Tower Cable Loop",
+   "desc": "Drooping loop of the power cables below the yaw deck that lets the nacelle turn.",
+   "size": [
+    1.4252,
+    1.4252,
+    10.0846
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "cable_loop",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower cable loop",
+    "joints": {},
+    "size_m": [
+     1.4252,
+     1.4252,
+     10.0846
+    ]
+   },
+   "variants": [
+    "healthy",
+    "cable_loop_chafed"
+   ],
+   "variant_of": null,
+   "folder": "186-cable_loop"
+  },
+  {
+   "id": "187",
+   "slug": "ground_controller",
+   "name": "Tower Base Controller",
+   "desc": "Ground controller cabinet at the tower base, opposite the door.",
+   "size": [
+    0.9,
+    0.59,
+    2.0
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "ground_controller",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower base controller",
+    "joints": {},
+    "size_m": [
+     0.9,
+     0.59,
+     2.0
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "187-ground_controller"
+  },
+  {
+   "id": "188",
+   "slug": "lift_rails",
+   "name": "Service Lift Rails",
+   "desc": "Guide and hoist wires of the service lift with their top anchor, running up the whole tower.",
+   "size": [
+    0.6,
+    1.1,
+    107.81
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "lift_rails",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "service lift rails",
+    "joints": {},
+    "size_m": [
+     0.6,
+     1.1,
+     107.81
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "188-lift_rails"
+  },
+  {
+   "id": "189",
+   "slug": "service_lift",
+   "name": "Service Lift Car",
+   "desc": "Open service lift car with railings, a roof hoist and a control panel.",
+   "size": [
+    0.94,
+    0.94,
+    2.54
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "service_lift",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "service lift car",
+    "joints": {},
+    "size_m": [
+     0.94,
+     0.94,
+     2.54
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "189-service_lift"
+  },
+  {
+   "id": "190",
+   "slug": "flange_1_bolts",
+   "name": "Tower Flange 1 Bolts",
+   "desc": "Ring of bolts with torque markings that joins tower section 1 to the section above.",
+   "size": [
+    5.6871,
+    5.6871,
+    0.384
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "flange_1_bolts",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower flange 1 bolts",
+    "joints": {},
+    "size_m": [
+     5.6871,
+     5.6871,
+     0.384
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "190-flange_1_bolts"
+  },
+  {
+   "id": "191",
+   "slug": "flange_2_bolts",
+   "name": "Tower Flange 2 Bolts",
+   "desc": "Ring of bolts with torque markings that joins tower section 2 to the section above.",
+   "size": [
+    5.7209,
+    5.7209,
+    0.384
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "flange_2_bolts",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower flange 2 bolts",
+    "joints": {},
+    "size_m": [
+     5.7209,
+     5.7209,
+     0.384
+    ]
+   },
+   "variants": [
+    "healthy",
+    "flange_2_bolts_loose"
+   ],
+   "variant_of": null,
+   "folder": "191-flange_2_bolts"
+  },
+  {
+   "id": "192",
+   "slug": "flange_3_bolts",
+   "name": "Tower Flange 3 Bolts",
+   "desc": "Ring of bolts with torque markings that joins tower section 3 to the section above.",
+   "size": [
+    4.1585,
+    4.1585,
+    0.3733
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "flange_3_bolts",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tower flange 3 bolts",
+    "joints": {},
+    "size_m": [
+     4.1585,
+     4.1585,
+     0.3733
+    ]
+   },
+   "variants": [
+    "healthy",
+    "flange_3_bolts_loose"
+   ],
+   "variant_of": null,
+   "folder": "192-flange_3_bolts"
+  },
+  {
+   "id": "193",
+   "slug": "nacelle_floor",
+   "name": "Nacelle Floor with Hatches",
+   "desc": "Floor grating of the nacelle with a hinged tower access hatch and the crane hatch at the rear.",
+   "size": [
+    12.48,
+    4.08,
+    0.112
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "nacelle_floor_hatch_joint",
+     "type": "revolute",
+     "lower": 0.0,
+     "upper": 1.9,
+     "inspect": 1.9
+    },
+    {
+     "name": "crane_hatch_joint",
+     "type": "revolute",
+     "lower": 0.0,
+     "upper": 1.9,
+     "inspect": 1.9
+    }
+   ],
+   "frames": [
+    {
+     "name": "nacelle_floor",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "nacelle_floor_hatch",
+     "purpose": "hinged_part"
+    },
+    {
+     "name": "crane_hatch",
+     "purpose": "hinged_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "nacelle floor with hatches",
+    "joints": {
+     "revolute": 2
+    },
+    "size_m": [
+     12.48,
+     4.08,
+     0.112
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "193-nacelle_floor"
+  },
+  {
+   "id": "194",
+   "slug": "nacelle_cover",
+   "name": "Nacelle Cover",
+   "desc": "Glass-fibre shell over the nacelle, open at the bottom.",
+   "size": [
+    12.6,
+    4.2,
+    4.107
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "nacelle_cover",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "nacelle cover",
+    "joints": {},
+    "size_m": [
+     12.6,
+     4.2,
+     4.107
+    ]
+   },
+   "variants": [
+    "healthy",
+    "cover_crack"
+   ],
+   "variant_of": null,
+   "folder": "194-nacelle_cover"
+  },
+  {
+   "id": "195",
+   "slug": "weather_mast",
+   "name": "Nacelle Weather Mast",
+   "desc": "Mast on the nacelle roof that carries the anemometer, the wind vane and the aviation light.",
+   "size": [
+    0.3,
+    1.1,
+    1.65
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "weather_mast",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "nacelle weather mast",
+    "joints": {},
+    "size_m": [
+     0.3,
+     1.1,
+     1.65
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "195-weather_mast"
+  },
+  {
+   "id": "196",
+   "slug": "anemometer",
+   "name": "Cup Anemometer",
+   "desc": "Cup anemometer on the weather mast, intact or damaged.",
+   "size": [
+    0.5,
+    1.2906,
+    0.22
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "anemometer",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "cup anemometer",
+    "joints": {},
+    "size_m": [
+     0.5,
+     1.2906,
+     0.22
+    ]
+   },
+   "variants": [
+    "healthy",
+    "anemometer_damaged"
+   ],
+   "variant_of": null,
+   "folder": "196-anemometer"
+  },
+  {
+   "id": "197",
+   "slug": "aviation_light",
+   "name": "Aviation Obstruction Light",
+   "desc": "Red obstruction light on the weather mast, working or broken.",
+   "size": [
+    0.15,
+    0.15,
+    0.135
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "aviation_light",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "aviation obstruction light",
+    "joints": {},
+    "size_m": [
+     0.15,
+     0.15,
+     0.135
+    ]
+   },
+   "variants": [
+    "healthy",
+    "aviation_light_failed"
+   ],
+   "variant_of": null,
+   "folder": "197-aviation_light"
+  },
+  {
+   "id": "198",
+   "slug": "bedplate",
+   "name": "Bedplate",
+   "desc": "Cast front bedplate with side girders for the main bearing and the gearbox torque arms, and a welded rear frame for the generator and transformer.",
+   "size": [
+    10.6,
+    2.6,
+    1.2304
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "bedplate",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "bedplate",
+    "joints": {},
+    "size_m": [
+     10.6,
+     2.6,
+     1.2304
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "198-bedplate"
+  },
+  {
+   "id": "199",
+   "slug": "main_bearing",
+   "name": "Main Bearing",
+   "desc": "Main bearing housing that carries the rotor shaft.",
+   "size": [
+    2.3699,
+    2.3,
+    1.6665
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "main_bearing",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "main bearing",
+    "joints": {},
+    "size_m": [
+     2.3699,
+     2.3,
+     1.6665
+    ]
+   },
+   "variants": [
+    "healthy",
+    "grease_leak_front_seal"
+   ],
+   "variant_of": null,
+   "folder": "199-main_bearing"
+  },
+  {
+   "id": "200",
+   "slug": "grease_collector",
+   "name": "Main Bearing Grease Collector",
+   "desc": "Transparent grease collector under the main bearing, normal or full.",
+   "size": [
+    0.124,
+    0.124,
+    0.21
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "main_bearing_grease_collector",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "main bearing grease collector",
+    "joints": {},
+    "size_m": [
+     0.124,
+     0.124,
+     0.21
+    ]
+   },
+   "variants": [
+    "healthy",
+    "grease_collector_full"
+   ],
+   "variant_of": null,
+   "folder": "200-grease_collector"
+  },
+  {
+   "id": "201",
+   "slug": "main_shaft",
+   "name": "Main Shaft",
+   "desc": "Low-speed rotor shaft between the hub flange and the gearbox.",
+   "size": [
+    4.2,
+    1.8,
+    1.8
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "main_shaft",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "main shaft",
+    "joints": {},
+    "size_m": [
+     4.2,
+     1.8,
+     1.8
+    ]
+   },
+   "variants": [
+    "healthy",
+    "fretting_corrosion"
+   ],
+   "variant_of": null,
+   "folder": "201-main_shaft"
+  },
+  {
+   "id": "202",
+   "slug": "shrink_disc_bolts",
+   "name": "Shrink Disc Bolts",
+   "desc": "Bolt ring of the shrink disc that clamps the main shaft to the gearbox, tight or loose.",
+   "size": [
+    0.016,
+    0.9491,
+    0.9491
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "main_shaft_shrink_disc_bolts",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "shrink disc bolts",
+    "joints": {},
+    "size_m": [
+     0.016,
+     0.9491,
+     0.9491
+    ]
+   },
+   "variants": [
+    "healthy",
+    "shrink_disc_bolt_loose"
+   ],
+   "variant_of": null,
+   "folder": "202-shrink_disc_bolts"
+  },
+  {
+   "id": "203",
+   "slug": "rotor_lock",
+   "name": "Rotor Lock with Pin",
+   "desc": "Rotor lock block beside the main bearing with a locking pin that slides into the hub flange.",
+   "size": [
+    0.472,
+    0.332,
+    0.224
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "rotor_lock_pin_joint",
+     "type": "prismatic",
+     "lower": 0.0,
+     "upper": 0.18,
+     "inspect": 0.18
+    }
+   ],
+   "frames": [
+    {
+     "name": "rotor_lock",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "rotor_lock_pin",
+     "purpose": "sliding_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "rotor lock with pin",
+    "joints": {
+     "prismatic": 1
+    },
+    "size_m": [
+     0.472,
+     0.332,
+     0.224
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "203-rotor_lock"
+  },
+  {
+   "id": "204",
+   "slug": "hub",
+   "name": "Rotor Hub",
+   "desc": "Cast rotor hub with three blade flanges and a spinner.",
+   "size": [
+    4.8592,
+    4.8851,
+    4.3616
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "hub",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "rotor hub",
+    "joints": {},
+    "size_m": [
+     4.8592,
+     4.8851,
+     4.3616
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "204-hub"
+  },
+  {
+   "id": "205",
+   "slug": "blade",
+   "name": "Rotor Blade",
+   "desc": "63 m rotor blade lofted from the IEA-3.4-130-RWT data, from the root flange to the tip.",
+   "size": [
+    3.8693,
+    4.5185,
+    63.0
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "blade",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "rotor blade",
+    "joints": {},
+    "size_m": [
+     3.8693,
+     4.5185,
+     63.0
+    ]
+   },
+   "variants": [
+    "healthy",
+    "leading_edge_erosion",
+    "lightning_damage",
+    "trailing_edge_crack"
+   ],
+   "variant_of": null,
+   "folder": "205-blade"
+  },
+  {
+   "id": "206",
+   "slug": "gearbox",
+   "name": "Gearbox",
+   "desc": "Gearbox with torque arms and oil cooler, between the main shaft and the generator.",
+   "size": [
+    3.1,
+    2.6,
+    2.51
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "gearbox",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "gearbox",
+    "joints": {},
+    "size_m": [
+     3.1,
+     2.6,
+     2.51
+    ]
+   },
+   "variants": [
+    "healthy",
+    "oil_leak_input_seal"
+   ],
+   "variant_of": null,
+   "folder": "206-gearbox"
+  },
+  {
+   "id": "207",
+   "slug": "gearbox_sight_glass",
+   "name": "Gearbox Oil Sight Glass",
+   "desc": "Oil level sight glass on the gearbox, full or low.",
+   "size": [
+    0.13,
+    0.012,
+    0.13
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "gearbox_sight_glass",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "gearbox oil sight glass",
+    "joints": {},
+    "size_m": [
+     0.13,
+     0.012,
+     0.13
+    ]
+   },
+   "variants": [
+    "healthy",
+    "oil_level_low"
+   ],
+   "variant_of": null,
+   "folder": "207-gearbox_sight_glass"
+  },
+  {
+   "id": "208",
+   "slug": "gearbox_filter_indicator",
+   "name": "Gearbox Filter Indicator",
+   "desc": "Pop-up clogging indicator of the gearbox oil filter, normal or clogged.",
+   "size": [
+    0.04,
+    0.04,
+    0.015
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "gearbox_filter_indicator",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "gearbox filter indicator",
+    "joints": {},
+    "size_m": [
+     0.04,
+     0.04,
+     0.015
+    ]
+   },
+   "variants": [
+    "healthy",
+    "filter_clogged"
+   ],
+   "variant_of": null,
+   "folder": "208-gearbox_filter_indicator"
+  },
+  {
+   "id": "209",
+   "slug": "gearbox_cover_bolts",
+   "name": "Gearbox Cover Bolts",
+   "desc": "Bolts of the gearbox inspection cover, complete or one missing.",
+   "size": [
+    0.4494,
+    0.014,
+    0.454
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "gearbox_cover_bolts",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "gearbox cover bolts",
+    "joints": {},
+    "size_m": [
+     0.4494,
+     0.014,
+     0.454
+    ]
+   },
+   "variants": [
+    "healthy",
+    "cover_bolt_missing"
+   ],
+   "variant_of": null,
+   "folder": "209-gearbox_cover_bolts"
+  },
+  {
+   "id": "210",
+   "slug": "gearbox_bushing",
+   "name": "Gearbox Torque Arm Bushing",
+   "desc": "Elastomer bushing of the gearbox's left torque arm, intact or cracked.",
+   "size": [
+    0.6,
+    0.26,
+    0.26
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "gearbox_bushing_left",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "gearbox torque arm bushing",
+    "joints": {},
+    "size_m": [
+     0.6,
+     0.26,
+     0.26
+    ]
+   },
+   "variants": [
+    "healthy",
+    "torque_arm_bushing_cracked"
+   ],
+   "variant_of": null,
+   "folder": "210-gearbox_bushing"
+  },
+  {
+   "id": "211",
+   "slug": "fast_shaft",
+   "name": "High-Speed Shaft",
+   "desc": "High-speed shaft with coupling hubs, from the gearbox output to the generator.",
+   "size": [
+    1.3,
+    0.288,
+    0.288
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "fast_shaft",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "high-speed shaft",
+    "joints": {},
+    "size_m": [
+     1.3,
+     0.288,
+     0.288
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "211-fast_shaft"
+  },
+  {
+   "id": "212",
+   "slug": "brake_disc",
+   "name": "Rotor Brake Disc",
+   "desc": "Brake disc on the high-speed shaft, normal or overheated.",
+   "size": [
+    0.16,
+    0.9,
+    0.9
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "fast_shaft_brake_disc",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "rotor brake disc",
+    "joints": {},
+    "size_m": [
+     0.16,
+     0.9,
+     0.9
+    ]
+   },
+   "variants": [
+    "healthy",
+    "disc_overheated"
+   ],
+   "variant_of": null,
+   "folder": "212-brake_disc"
+  },
+  {
+   "id": "213",
+   "slug": "coupling",
+   "name": "Shaft Coupling",
+   "desc": "Flexible disc-pack coupling to the generator, intact or cracked.",
+   "size": [
+    0.55,
+    0.6,
+    0.6
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "fast_shaft_coupling",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "shaft coupling",
+    "joints": {},
+    "size_m": [
+     0.55,
+     0.6,
+     0.6
+    ]
+   },
+   "variants": [
+    "healthy",
+    "disc_pack_cracked"
+   ],
+   "variant_of": null,
+   "folder": "213-coupling"
+  },
+  {
+   "id": "214",
+   "slug": "brake_caliper",
+   "name": "Rotor Brake Caliper",
+   "desc": "Brake caliper straddling the top of the brake disc, with normal or worn pads.",
+   "size": [
+    0.3,
+    0.28,
+    0.59
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "brake_caliper",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "rotor brake caliper",
+    "joints": {},
+    "size_m": [
+     0.3,
+     0.28,
+     0.59
+    ]
+   },
+   "variants": [
+    "healthy",
+    "pads_worn"
+   ],
+   "variant_of": null,
+   "folder": "214-brake_caliper"
+  },
+  {
+   "id": "215",
+   "slug": "generator",
+   "name": "Generator",
+   "desc": "Doubly fed induction generator with finned housing, end shields, feet, terminal box and slip-ring housing.",
+   "size": [
+    3.3,
+    1.7,
+    3.0891
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "generator",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "generator",
+    "joints": {},
+    "size_m": [
+     3.3,
+     1.7,
+     3.0891
+    ]
+   },
+   "variants": [
+    "healthy",
+    "slip_ring_carbon_dust",
+    "terminal_box_overheating"
+   ],
+   "variant_of": null,
+   "folder": "215-generator"
+  },
+  {
+   "id": "216",
+   "slug": "transformer",
+   "name": "Nacelle Transformer",
+   "desc": "Transformer with three cast-resin coils on a core frame inside a mesh cage.",
+   "size": [
+    1.326,
+    1.48,
+    2.315
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "transformer",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "nacelle transformer",
+    "joints": {},
+    "size_m": [
+     1.326,
+     1.48,
+     2.315
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "216-transformer"
+  },
+  {
+   "id": "217",
+   "slug": "cabinet_converter",
+   "name": "Converter Cabinet with Door",
+   "desc": "Power converter cabinet with a hinged door that carries a status light, normal or showing an error.",
+   "size": [
+    0.7,
+    0.66,
+    2.0
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "cabinet_converter_door_joint",
+     "type": "revolute",
+     "lower": 0.0,
+     "upper": 1.9,
+     "inspect": 1.9
+    }
+   ],
+   "frames": [
+    {
+     "name": "cabinet_converter",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "cabinet_converter_door",
+     "purpose": "hinged_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "converter cabinet with door",
+    "joints": {
+     "revolute": 1
+    },
+    "size_m": [
+     0.7,
+     0.66,
+     2.0
+    ]
+   },
+   "variants": [
+    "healthy",
+    "fault_light"
+   ],
+   "variant_of": null,
+   "folder": "217-cabinet_converter"
+  },
+  {
+   "id": "218",
+   "slug": "cabinet_controller",
+   "name": "Controller Cabinet with Door",
+   "desc": "Turbine controller cabinet with a hinged door.",
+   "size": [
+    0.7,
+    0.67,
+    2.0
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "cabinet_controller_door_joint",
+     "type": "revolute",
+     "lower": 0.0,
+     "upper": 1.9,
+     "inspect": 1.9
+    }
+   ],
+   "frames": [
+    {
+     "name": "cabinet_controller",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "cabinet_controller_door",
+     "purpose": "hinged_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "controller cabinet with door",
+    "joints": {
+     "revolute": 1
+    },
+    "size_m": [
+     0.7,
+     0.67,
+     2.0
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "218-cabinet_controller"
+  },
+  {
+   "id": "219",
+   "slug": "hydraulic_unit",
+   "name": "Hydraulic Unit",
+   "desc": "Hydraulic unit with tank, motor and valve block, and its hose to the brake caliper.",
+   "size": [
+    1.6936,
+    1.3134,
+    2.2224
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "hydraulic_unit",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "hydraulic unit",
+    "joints": {},
+    "size_m": [
+     1.6936,
+     1.3134,
+     2.2224
+    ]
+   },
+   "variants": [
+    "healthy",
+    "hose_leak"
+   ],
+   "variant_of": null,
+   "folder": "219-hydraulic_unit"
+  },
+  {
+   "id": "220",
+   "slug": "cooling_unit",
+   "name": "Cooling Unit",
+   "desc": "Cooling unit with pump and expansion tank.",
+   "size": [
+    1.2271,
+    0.8488,
+    1.2
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "cooling_unit",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "cooling unit",
+    "joints": {},
+    "size_m": [
+     1.2271,
+     0.8488,
+     1.2
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "220-cooling_unit"
+  },
+  {
+   "id": "221",
+   "slug": "coolant_level",
+   "name": "Coolant Level Gauge",
+   "desc": "Level gauge on the cooling unit's expansion tank, normal or low.",
+   "size": [
+    0.06,
+    0.032,
+    0.34
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "cooling_level",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "coolant level gauge",
+    "joints": {},
+    "size_m": [
+     0.06,
+     0.032,
+     0.34
+    ]
+   },
+   "variants": [
+    "healthy",
+    "coolant_low"
+   ],
+   "variant_of": null,
+   "folder": "221-coolant_level"
+  },
+  {
+   "id": "222",
+   "slug": "service_crane",
+   "name": "Nacelle Service Crane",
+   "desc": "Crane rail under the nacelle roof with a travelling trolley and a hoist hook carrying a lifting platform.",
+   "size": [
+    10.7,
+    0.9,
+    4.13
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [
+    {
+     "name": "crane_trolley_joint",
+     "type": "prismatic",
+     "lower": 0.0,
+     "upper": 9.6,
+     "inspect": 4.0
+    },
+    {
+     "name": "crane_hook_joint",
+     "type": "prismatic",
+     "lower": 0.0,
+     "upper": 115.0,
+     "inspect": 2.5
+    }
+   ],
+   "frames": [
+    {
+     "name": "crane_rail",
+     "purpose": "base_origin"
+    },
+    {
+     "name": "crane_trolley",
+     "purpose": "sliding_part"
+    },
+    {
+     "name": "crane_hook",
+     "purpose": "sliding_part"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "articulated",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "nacelle service crane",
+    "joints": {
+     "prismatic": 2
+    },
+    "size_m": [
+     10.7,
+     0.9,
+     4.13
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "222-service_crane"
+  },
+  {
+   "id": "223",
+   "slug": "fire_extinguisher",
+   "name": "Fire Extinguisher",
+   "desc": "Wall-mounted fire extinguisher, present or missing from its bracket.",
+   "size": [
+    0.2,
+    0.2098,
+    0.6
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "fire_extinguisher",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "fire extinguisher",
+    "joints": {},
+    "size_m": [
+     0.2,
+     0.2098,
+     0.6
+    ]
+   },
+   "variants": [
+    "healthy",
+    "extinguisher_missing"
+   ],
+   "variant_of": null,
+   "folder": "223-fire_extinguisher"
+  },
+  {
+   "id": "224",
+   "slug": "safety_equipment",
+   "name": "First-Aid and Emergency-Stop Boxes",
+   "desc": "First-aid box and emergency-stop box on the nacelle walls by the tower hatch.",
+   "size": [
+    1.17,
+    4.08,
+    0.32
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "safety_equipment",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "first-aid and emergency-stop boxes",
+    "joints": {},
+    "size_m": [
+     1.17,
+     4.08,
+     0.32
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "224-safety_equipment"
+  },
+  {
+   "id": "225",
+   "slug": "tool_rack",
+   "name": "Tool Rack",
+   "desc": "Steel tool rack with two shelves against the nacelle wall.",
+   "size": [
+    0.63,
+    0.32,
+    1.3
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "tool_rack",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tool rack",
+    "joints": {},
+    "size_m": [
+     0.63,
+     0.32,
+     1.3
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "225-tool_rack"
+  },
+  {
+   "id": "226",
+   "slug": "tool_tray",
+   "name": "Tool Tray",
+   "desc": "Tool tray on a post on the bedplate girder.",
+   "size": [
+    0.4,
+    0.27,
+    0.43
+   ],
+   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
+   "joints": [],
+   "frames": [
+    {
+     "name": "tool_tray",
+     "purpose": "base_origin"
+    }
+   ],
+   "category": "wind-turbine",
+   "mobility": "rigid",
+   "added": "2026-10-30",
+   "fingerprint": {
+    "type": "tool tray",
+    "joints": {},
+    "size_m": [
+     0.4,
+     0.27,
+     0.43
+    ]
+   },
+   "variants": [
+    "healthy"
+   ],
+   "variant_of": null,
+   "folder": "226-tool_tray"
+  }
+ ]
+}

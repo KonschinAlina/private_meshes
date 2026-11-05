@@ -1,0 +1,119 @@
+{
+  "object": "nacelle_floor",
+  "rootLink": "nacelle_floor",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "the turbine link's origin, which lies on the part, axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -9.74,
+      -2.04,
+      -0.08
+    ],
+    "max": [
+      2.74,
+      2.04,
+      0.032
+    ]
+  },
+  "links": {
+    "nacelle_floor": "nacelle",
+    "nacelle_floor_hatch": "nacelle_floor_hatch",
+    "crane_hatch": "crane_hatch"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "nacelle",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "nacelle",
+        "parentLink": "yaw_bearing",
+        "joint": {
+          "name": "nacelle_joint",
+          "type": "continuous",
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "originInObject": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            108.41
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "177-yaw_bearing",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

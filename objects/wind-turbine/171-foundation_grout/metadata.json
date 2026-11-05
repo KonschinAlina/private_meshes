@@ -1,0 +1,119 @@
+{
+  "object": "foundation_grout",
+  "rootLink": "foundation_grout",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "the turbine link's origin, which lies on the part, axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -3.22,
+      -3.22,
+      0.0
+    ],
+    "max": [
+      3.22,
+      3.22,
+      0.06
+    ]
+  },
+  "links": {
+    "foundation_grout": "foundation_grout"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "site",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "foundation_grout",
+        "parentLink": "foundation",
+        "joint": {
+          "name": "foundation_grout_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "170-foundation",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "grout_breakout": {
+      "urdf": "model_grout_breakout.urdf",
+      "fault": "foundation.grout_breakout",
+      "severity": "high",
+      "description": "Grout broken out under the base flange, debris on the plinth",
+      "replaces": [
+        {
+          "link": "foundation_grout",
+          "asset": "assets/grout_broken.glb"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

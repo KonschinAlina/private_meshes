@@ -1,0 +1,129 @@
+{
+  "object": "nacelle_cover",
+  "rootLink": "nacelle_cover",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "the turbine link's origin, which lies on the part, axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -9.8,
+      -2.1,
+      0.093012
+    ],
+    "max": [
+      2.8,
+      2.1,
+      4.2
+    ]
+  },
+  "links": {
+    "nacelle_cover": "nacelle"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "nacelle",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "nacelle",
+        "parentLink": "yaw_bearing",
+        "joint": {
+          "name": "nacelle_joint",
+          "type": "continuous",
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "originInObject": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            108.41
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "177-yaw_bearing",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "cover_crack": {
+      "urdf": "model_cover_crack.urdf",
+      "fault": "nacelle.cover_crack",
+      "severity": "low",
+      "description": "Crack in the GRP cover on the -Y side, rain can get in",
+      "overlays": [
+        {
+          "asset": "assets/fault_cover_crack.glb",
+          "link": "nacelle_cover"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}
