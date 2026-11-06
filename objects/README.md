@@ -7,7 +7,7 @@ including its meshes, documentation and notices.
 | --- | --- | --- |
 | [Articulated objects](articulated/README.md) | 164 furniture, appliance, workshop and storage models, grouped into 12 categories | `<category>/<id>-<slug>/model.urdf` or `model.blend` |
 | [Laboratory devices](laboratory/README.md) | Centrifuge, dual dispenser, refrigerator, scale and tube rack | `<device>/model.urdf` |
-| [Wind turbine parts](wind-turbine/README.md) | 57 parts of an onshore wind turbine, each with its healthy and faulty states and its place in the assembled turbine | `<id>-<slug>/model.urdf`, `model_<state>.urdf` |
+| [Wind turbine parts](wind-turbine/README.md) | 54 parts of an onshore wind turbine, each with its healthy and faulty states and its place in the assembled turbine | `<id>-<slug>/model.urdf`, `model_<state>.urdf` |
 
 The [web catalogue](https://sunava.github.io/private_meshes/) covers all three
 collections, with Laboratory and Wind Turbine categories and an Articulated/Rigid filter.

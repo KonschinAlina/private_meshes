@@ -20,7 +20,7 @@ objects/                         independently loadable models
     refrigerator/
     scale/
     tube_rack/
-  wind-turbine/                  57 wind turbine parts, generated from the turbine model
+  wind-turbine/                  54 wind turbine parts, generated from the turbine model
     collection.json              wind turbine web-catalogue metadata
     INVENTORY.md                 every source GLB and the object it went into
     <id>-<slug>/                 URDF per healthy/faulty state, meshes, placement, notices

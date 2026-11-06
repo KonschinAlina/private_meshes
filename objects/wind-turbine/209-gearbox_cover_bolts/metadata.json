@@ -6,14 +6,14 @@
   "origin": "centre of the root mesh's footprint (X/Y bounding-box centre, lowest Z), axes parallel to the turbine link frame",
   "bounds": {
     "min": [
-      -0.224722,
-      -0.007,
+      -0.2285,
+      -0.013,
       0.0
     ],
     "max": [
-      0.224722,
-      0.007,
-      0.454
+      0.2285,
+      0.013,
+      0.457
     ]
   },
   "links": {
@@ -34,9 +34,9 @@
         },
         "originInTurbine": {
           "xyz": [
-            -2.826495,
-            0.787,
-            109.4486
+            -2.826364,
+            0.781,
+            109.447106
           ],
           "rpy": [
             0.0,
@@ -47,8 +47,8 @@
         "originInParentLink": {
           "xyz": [
             -2.1,
-            0.787,
-            0.073
+            0.781,
+            0.0715
           ],
           "rpy": [
             0.0,
@@ -60,8 +60,8 @@
         "originInParentObject": {
           "xyz": [
             -2.1,
-            0.787,
-            0.073
+            0.781,
+            0.0715
           ],
           "rpy": [
             0.0,

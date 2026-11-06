@@ -1,23 +1,23 @@
 {
-  "object": "flange_3_bolts",
-  "rootLink": "flange_3_bolts",
+  "object": "platform_1_2",
+  "rootLink": "platform_1",
   "units": "metres",
   "upAxis": "Z",
   "origin": "centre of the root mesh's footprint (X/Y bounding-box centre, lowest Z), axes parallel to the turbine link frame",
   "bounds": {
     "min": [
-      -2.07926,
-      -2.07926,
-      0.0
+      -2.903869,
+      -2.903869,
+      1e-06
     ],
     "max": [
-      2.07926,
-      2.07926,
-      0.373322
+      2.903869,
+      2.903869,
+      2.149999
     ]
   },
   "links": {
-    "flange_3_bolts": "flange_3_bolts"
+    "platform_1": "platform_1"
   },
   "turbine": {
     "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
@@ -26,17 +26,17 @@
     "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
     "instances": [
       {
-        "turbineLink": "flange_3_bolts",
-        "parentLink": "tower_section_3",
+        "turbineLink": "platform_1",
+        "parentLink": "tower_section_1",
         "joint": {
-          "name": "flange_3_bolts_joint",
+          "name": "platform_1_joint",
           "type": "fixed"
         },
         "originInTurbine": {
           "xyz": [
             0.0,
             0.0,
-            86.285
+            20.52
           ],
           "rpy": [
             0.0,
@@ -48,7 +48,7 @@
           "xyz": [
             0.0,
             0.0,
-            32.205
+            20.46
           ],
           "rpy": [
             0.0,
@@ -56,17 +56,75 @@
             0.0
           ]
         },
-        "parentObject": "175-tower_section_3",
+        "parentObject": "173-tower_section_1",
         "originInParentObject": {
           "xyz": [
             0.0,
             0.0,
-            32.205
+            20.46
           ],
           "rpy": [
             0.0,
             0.0,
             0.0
+          ]
+        }
+      },
+      {
+        "turbineLink": "platform_2",
+        "parentLink": "tower_section_2",
+        "joint": {
+          "name": "platform_2_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            52.93
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            31.26
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "174-tower_section_2",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            31.26
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "urdf": "model_platform_2.urdf",
+        "bounds": {
+          "min": [
+            -2.920868,
+            -2.920868,
+            0.0
+          ],
+          "max": [
+            2.920868,
+            2.920868,
+            2.150001
           ]
         }
       }
@@ -76,17 +134,9 @@
     "healthy": {
       "urdf": "model.urdf"
     },
-    "flange_3_bolts_loose": {
-      "urdf": "model_flange_3_bolts_loose.urdf",
-      "fault": "tower.flange_3_bolts_loose",
-      "severity": "medium",
-      "description": "Torque markings turned on flange 3: nut 75 by 14 deg (turning back 117 deg releases all preload)",
-      "replaces": [
-        {
-          "link": "flange_3_bolts",
-          "asset": "assets/flange_3_bolts_loose.glb"
-        }
-      ]
+    "platform_2": {
+      "urdf": "model_platform_2.urdf",
+      "description": "Healthy `platform_2`"
     }
   },
   "assetRights": {

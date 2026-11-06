@@ -1,0 +1,255 @@
+{
+  "object": "flange_bolts",
+  "rootLink": "flange_1_bolts",
+  "units": "metres",
+  "upAxis": "Z",
+  "origin": "centre of the root mesh's footprint (X/Y bounding-box centre, lowest Z), axes parallel to the turbine link frame",
+  "bounds": {
+    "min": [
+      -2.84353,
+      -2.84353,
+      0.0
+    ],
+    "max": [
+      2.84353,
+      2.84353,
+      0.384039
+    ]
+  },
+  "links": {
+    "flange_1_bolts": "flange_1_bolts"
+  },
+  "turbine": {
+    "source": "sorinar329/cognitive_robot_abstract_machine@windturbine_maintenance",
+    "commit": "1caca2d03",
+    "group": "tower_interior",
+    "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), all joints at zero",
+    "instances": [
+      {
+        "turbineLink": "flange_1_bolts",
+        "parentLink": "tower_section_1",
+        "joint": {
+          "name": "flange_1_bolts_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            21.459
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            21.399
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "173-tower_section_1",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            21.399
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "turbineLink": "flange_2_bolts",
+        "parentLink": "tower_section_2",
+        "joint": {
+          "name": "flange_2_bolts_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            53.869
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            32.199
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "174-tower_section_2",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            32.199
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "urdf": "model_flange_2_bolts.urdf",
+        "bounds": {
+          "min": [
+            -2.86046,
+            -2.86046,
+            -4e-06
+          ],
+          "max": [
+            2.86046,
+            2.86046,
+            0.384036
+          ]
+        }
+      },
+      {
+        "turbineLink": "flange_3_bolts",
+        "parentLink": "tower_section_3",
+        "joint": {
+          "name": "flange_3_bolts_joint",
+          "type": "fixed"
+        },
+        "originInTurbine": {
+          "xyz": [
+            0.0,
+            0.0,
+            86.285
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "originInParentLink": {
+          "xyz": [
+            0.0,
+            0.0,
+            32.205
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "parentObject": "175-tower_section_3",
+        "originInParentObject": {
+          "xyz": [
+            0.0,
+            0.0,
+            32.205
+          ],
+          "rpy": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "urdf": "model_flange_3_bolts.urdf",
+        "bounds": {
+          "min": [
+            -2.07926,
+            -2.07926,
+            0.0
+          ],
+          "max": [
+            2.07926,
+            2.07926,
+            0.373322
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {
+    "healthy": {
+      "urdf": "model.urdf"
+    },
+    "flange_2_bolts": {
+      "urdf": "model_flange_2_bolts.urdf",
+      "description": "Healthy `flange_2_bolts`"
+    },
+    "flange_2_bolts_loose": {
+      "urdf": "model_flange_2_bolts_loose.urdf",
+      "fault": "tower.flange_2_bolts_loose",
+      "severity": "high",
+      "description": "Torque markings turned on flange 2: nut 20 by 25 deg, nut 21 by 40 deg, nut 22 by 180 deg, nut 60 by 15 deg (turning back 105 deg releases all preload)",
+      "replaces": [
+        {
+          "link": "flange_2_bolts",
+          "asset": "assets/flange_2_bolts_loose.glb"
+        }
+      ]
+    },
+    "flange_3_bolts": {
+      "urdf": "model_flange_3_bolts.urdf",
+      "description": "Healthy `flange_3_bolts`"
+    },
+    "flange_3_bolts_loose": {
+      "urdf": "model_flange_3_bolts_loose.urdf",
+      "fault": "tower.flange_3_bolts_loose",
+      "severity": "medium",
+      "description": "Torque markings turned on flange 3: nut 75 by 14 deg (turning back 117 deg releases all preload)",
+      "replaces": [
+        {
+          "link": "flange_3_bolts",
+          "asset": "assets/flange_3_bolts_loose.glb"
+        }
+      ]
+    }
+  },
+  "assetRights": {
+    "author": "sorinar329",
+    "source": "https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance",
+    "copyright": "Copyright (c) 2026, sorinar329",
+    "license": "BSD-3-Clause",
+    "licenseStatus": "proposed; pending confirmation by the turbine model's author",
+    "dimensionsFrom": {
+      "name": "IEA Wind TCP Task 37, IEA-3.4-130-RWT reference wind turbine",
+      "url": "https://github.com/IEAWindSystems/IEA-3.4-130-RWT",
+      "license": "Apache-2.0"
+    },
+    "textures": {
+      "source": "ambientCG",
+      "license": "CC0-1.0",
+      "sets": [
+        "Concrete034",
+        "Grass004",
+        "Gravel023",
+        "Metal027",
+        "MetalWalkway011",
+        "PaintedMetal004",
+        "Plastic010"
+      ]
+    },
+    "licenseFile": "LICENSE.txt",
+    "noticeFile": "NOTICE.md"
+  }
+}

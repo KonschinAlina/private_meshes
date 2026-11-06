@@ -68,6 +68,8 @@ Wind turbine entries in `objects/wind-turbine/collection.json` follow the labora
 rules (`LICENSE.txt`, `rights.json` and `metadata.json` required, no Blender project)
 and are generated with their folders by `scripts/export_turbine_parts.py` from the
 turbine model; each fault state is an extra `model_<state>.urdf` in the same folder.
+Parts of the same design share one entry, and bolt sets show one bolt in their preview;
+their folders still hold every part's complete model.
 Render their previews with
 `blender --background --factory-startup --python scripts/render_turbine.py`.
 

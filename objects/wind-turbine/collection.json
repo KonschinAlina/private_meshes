@@ -6,7 +6,7 @@
    "title": "Wind Turbine",
    "blurb": "Parts of an onshore wind turbine after the IEA 3.4 MW reference design: tower, nacelle, drivetrain, rotor and service equipment, each with its healthy and faulty states.",
    "added": "2026-10-30",
-   "count": 57
+   "count": 54
   }
  ],
  "objects": [
@@ -319,9 +319,9 @@
   },
   {
    "id": "178",
-   "slug": "platform_1",
-   "name": "Tower Platform 1",
-   "desc": "Grated rest platform under the flange at the top of tower section 1, with railings and openings for the ladder and the service lift.",
+   "slug": "platform_1_2",
+   "name": "Tower Platform 1 and 2",
+   "desc": "Grated rest platform under the flange at the top of tower sections 1 and 2, with railings and openings for the ladder and the service lift.",
    "size": [
     5.8077,
     5.8077,
@@ -339,7 +339,7 @@
    "mobility": "rigid",
    "added": "2026-10-30",
    "fingerprint": {
-    "type": "tower platform 1",
+    "type": "tower platform 1 and 2",
     "joints": {},
     "size_m": [
      5.8077,
@@ -348,46 +348,11 @@
     ]
    },
    "variants": [
-    "healthy"
+    "healthy",
+    "platform_2"
    ],
    "variant_of": null,
-   "folder": "178-platform_1"
-  },
-  {
-   "id": "179",
-   "slug": "platform_2",
-   "name": "Tower Platform 2",
-   "desc": "Grated rest platform under the flange at the top of tower section 2, with railings and openings for the ladder and the service lift.",
-   "size": [
-    5.8417,
-    5.8417,
-    2.15
-   ],
-   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
-   "joints": [],
-   "frames": [
-    {
-     "name": "platform_2",
-     "purpose": "base_origin"
-    }
-   ],
-   "category": "wind-turbine",
-   "mobility": "rigid",
-   "added": "2026-10-30",
-   "fingerprint": {
-    "type": "tower platform 2",
-    "joints": {},
-    "size_m": [
-     5.8417,
-     5.8417,
-     2.15
-    ]
-   },
-   "variants": [
-    "healthy"
-   ],
-   "variant_of": null,
-   "folder": "179-platform_2"
+   "folder": "178-platform_1_2"
   },
   {
    "id": "180",
@@ -752,9 +717,9 @@
   },
   {
    "id": "190",
-   "slug": "flange_1_bolts",
-   "name": "Tower Flange 1 Bolts",
-   "desc": "Ring of bolts with torque markings that joins tower section 1 to the section above.",
+   "slug": "flange_bolts",
+   "name": "Tower Flange Bolts",
+   "desc": "Bolt with torque markings from the rings that join the tower sections. The picture shows one bolt; the object holds the complete rings of flanges 1 and 2 (132 bolts) and flange 3 (100 smaller bolts), tight or loose.",
    "size": [
     5.6871,
     5.6871,
@@ -772,7 +737,7 @@
    "mobility": "rigid",
    "added": "2026-10-30",
    "fingerprint": {
-    "type": "tower flange 1 bolts",
+    "type": "tower flange bolts",
     "joints": {},
     "size_m": [
      5.6871,
@@ -781,84 +746,14 @@
     ]
    },
    "variants": [
-    "healthy"
-   ],
-   "variant_of": null,
-   "folder": "190-flange_1_bolts"
-  },
-  {
-   "id": "191",
-   "slug": "flange_2_bolts",
-   "name": "Tower Flange 2 Bolts",
-   "desc": "Ring of bolts with torque markings that joins tower section 2 to the section above.",
-   "size": [
-    5.7209,
-    5.7209,
-    0.384
-   ],
-   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
-   "joints": [],
-   "frames": [
-    {
-     "name": "flange_2_bolts",
-     "purpose": "base_origin"
-    }
-   ],
-   "category": "wind-turbine",
-   "mobility": "rigid",
-   "added": "2026-10-30",
-   "fingerprint": {
-    "type": "tower flange 2 bolts",
-    "joints": {},
-    "size_m": [
-     5.7209,
-     5.7209,
-     0.384
-    ]
-   },
-   "variants": [
     "healthy",
-    "flange_2_bolts_loose"
-   ],
-   "variant_of": null,
-   "folder": "191-flange_2_bolts"
-  },
-  {
-   "id": "192",
-   "slug": "flange_3_bolts",
-   "name": "Tower Flange 3 Bolts",
-   "desc": "Ring of bolts with torque markings that joins tower section 3 to the section above.",
-   "size": [
-    4.1585,
-    4.1585,
-    0.3733
-   ],
-   "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
-   "joints": [],
-   "frames": [
-    {
-     "name": "flange_3_bolts",
-     "purpose": "base_origin"
-    }
-   ],
-   "category": "wind-turbine",
-   "mobility": "rigid",
-   "added": "2026-10-30",
-   "fingerprint": {
-    "type": "tower flange 3 bolts",
-    "joints": {},
-    "size_m": [
-     4.1585,
-     4.1585,
-     0.3733
-    ]
-   },
-   "variants": [
-    "healthy",
+    "flange_2_bolts",
+    "flange_3_bolts",
+    "flange_2_bolts_loose",
     "flange_3_bolts_loose"
    ],
    "variant_of": null,
-   "folder": "192-flange_3_bolts"
+   "folder": "190-flange_bolts"
   },
   {
    "id": "193",
@@ -1219,9 +1114,9 @@
    "id": "202",
    "slug": "shrink_disc_bolts",
    "name": "Shrink Disc Bolts",
-   "desc": "Bolt ring of the shrink disc that clamps the main shaft to the gearbox, tight or loose.",
+   "desc": "Bolt of the shrink disc that clamps the main shaft to the gearbox. The picture shows one bolt; the object holds the complete ring of 20, tight or loose.",
    "size": [
-    0.016,
+    0.028,
     0.9491,
     0.9491
    ],
@@ -1240,7 +1135,7 @@
     "type": "shrink disc bolts",
     "joints": {},
     "size_m": [
-     0.016,
+     0.028,
      0.9491,
      0.9491
     ]
@@ -1492,11 +1387,11 @@
    "id": "209",
    "slug": "gearbox_cover_bolts",
    "name": "Gearbox Cover Bolts",
-   "desc": "Bolts of the gearbox inspection cover, complete or one missing.",
+   "desc": "Bolt of the gearbox inspection cover. The picture shows one bolt; the object holds all 8, complete or one missing.",
    "size": [
-    0.4494,
-    0.014,
-    0.454
+    0.457,
+    0.026,
+    0.457
    ],
    "size_basis": "Visual bounds of the healthy state at zero joint positions; metres, X/Y/Z.",
    "joints": [],
@@ -1513,9 +1408,9 @@
     "type": "gearbox cover bolts",
     "joints": {},
     "size_m": [
-     0.4494,
-     0.014,
-     0.454
+     0.457,
+     0.026,
+     0.457
     ]
    },
    "variants": [

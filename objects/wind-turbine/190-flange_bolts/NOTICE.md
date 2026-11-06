@@ -1,4 +1,4 @@
-# Notice: Tower Flange 2 Bolts
+# Notice: Tower Flange Bolts
 
 Part of the wind turbine model by sorinar329, generated from
 [sorinar329/cognitive_robot_abstract_machine](https://github.com/sorinar329/cognitive_robot_abstract_machine/tree/windturbine_maintenance) (branch `windturbine_maintenance`)

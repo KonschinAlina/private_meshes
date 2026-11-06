@@ -9,8 +9,8 @@ Source: `sorinar329/cognitive_robot_abstract_machine` branch `windturbine_mainte
 | bedplate | `bedplate.glb` | 140 | `bedplate` | part | node transform | [#198 Bedplate](198-bedplate/) |
 | gearbox | `bushing_left_cracked.glb` | 44 | `gearbox_bushing_left` | faulty: cracked | node transform | [#210 Gearbox Torque Arm Bushing](210-gearbox_bushing/) |
 | gearbox | `bushing_left_ok.glb` | 14 | `gearbox_bushing_left` | healthy | node transform | [#210 Gearbox Torque Arm Bushing](210-gearbox_bushing/) |
-| gearbox | `cover_bolts_missing.glb` | 21 | `gearbox_cover_bolts` | faulty: missing | node transform | [#209 Gearbox Cover Bolts](209-gearbox_cover_bolts/) |
-| gearbox | `cover_bolts_ok.glb` | 11 | `gearbox_cover_bolts` | healthy | node transform | [#209 Gearbox Cover Bolts](209-gearbox_cover_bolts/) |
+| gearbox | `cover_bolts_missing.glb` | 209 | `gearbox_cover_bolts` | faulty: missing | node transform | [#209 Gearbox Cover Bolts](209-gearbox_cover_bolts/) |
+| gearbox | `cover_bolts_ok.glb` | 216 | `gearbox_cover_bolts` | healthy | node transform | [#209 Gearbox Cover Bolts](209-gearbox_cover_bolts/) |
 | gearbox | `fault_oil_puddle.glb` | 14 | `gearbox_fault_oil_puddle` | fault overlay | node transform | [#206 Gearbox](206-gearbox/) |
 | gearbox | `fault_oil_streak.glb` | 71 | `gearbox_fault_oil_streak` | fault overlay | node transform | [#206 Gearbox](206-gearbox/) |
 | gearbox | `filter_indicator_clogged.glb` | 11 | `gearbox_filter_indicator` | faulty: clogged | node transform | [#208 Gearbox Filter Indicator](208-gearbox_filter_indicator/) |
@@ -36,8 +36,8 @@ Source: `sorinar329/cognitive_robot_abstract_machine` branch `windturbine_mainte
 | main_shaft | `main_shaft.glb` | 424 | `main_shaft` | part | node transform | [#201 Main Shaft](201-main_shaft/) |
 | main_shaft | `rotor_lock.glb` | 250 | `rotor_lock` | part | node transform | [#203 Rotor Lock with Pin](203-rotor_lock/) |
 | main_shaft | `rotor_lock_pin.glb` | 84 | `rotor_lock_pin` | part | node transform | [#203 Rotor Lock with Pin](203-rotor_lock/) |
-| main_shaft | `shrink_disc_bolts_loose.glb` | 167 | `main_shaft_shrink_disc_bolts` | faulty: loose | node transform | [#202 Shrink Disc Bolts](202-shrink_disc_bolts/) |
-| main_shaft | `shrink_disc_bolts_ok.glb` | 121 | `main_shaft_shrink_disc_bolts` | healthy | node transform | [#202 Shrink Disc Bolts](202-shrink_disc_bolts/) |
+| main_shaft | `shrink_disc_bolts_loose.glb` | 535 | `main_shaft_shrink_disc_bolts` | faulty: loose | node transform | [#202 Shrink Disc Bolts](202-shrink_disc_bolts/) |
+| main_shaft | `shrink_disc_bolts_ok.glb` | 519 | `main_shaft_shrink_disc_bolts` | healthy | node transform | [#202 Shrink Disc Bolts](202-shrink_disc_bolts/) |
 | nacelle | `anemometer_damaged.glb` | 163 | `anemometer` | faulty: damaged | vertices | [#196 Cup Anemometer](196-anemometer/) |
 | nacelle | `anemometer_ok.glb` | 231 | `anemometer` | healthy | vertices | [#196 Cup Anemometer](196-anemometer/) |
 | nacelle | `aviation_light_broken.glb` | 81 | `aviation_light` | faulty: broken | node transform | [#197 Aviation Obstruction Light](197-aviation_light/) |
@@ -92,11 +92,11 @@ Source: `sorinar329/cognitive_robot_abstract_machine` branch `windturbine_mainte
 | systems | `transformer.glb` | 209 | `transformer` | part | node transform | [#216 Nacelle Transformer](216-transformer/) |
 | tower_interior | `cable_loop.glb` | 52 | `cable_loop` | part | vertices | [#186 Tower Cable Loop](186-cable_loop/) |
 | tower_interior | `fault_cable_chafe.glb` | 27 | `tower_fault_cable_chafe` | fault overlay | node transform | [#186 Tower Cable Loop](186-cable_loop/) |
-| tower_interior | `flange_1_bolts_ok.glb` | 1782 | `flange_1_bolts` | part | node transform | [#190 Tower Flange 1 Bolts](190-flange_1_bolts/) |
-| tower_interior | `flange_2_bolts_loose.glb` | 1782 | `flange_2_bolts` | faulty: loose | node transform | [#191 Tower Flange 2 Bolts](191-flange_2_bolts/) |
-| tower_interior | `flange_2_bolts_ok.glb` | 1782 | `flange_2_bolts` | healthy | node transform | [#191 Tower Flange 2 Bolts](191-flange_2_bolts/) |
-| tower_interior | `flange_3_bolts_loose.glb` | 1384 | `flange_3_bolts` | faulty: loose | node transform | [#192 Tower Flange 3 Bolts](192-flange_3_bolts/) |
-| tower_interior | `flange_3_bolts_ok.glb` | 1384 | `flange_3_bolts` | healthy | node transform | [#192 Tower Flange 3 Bolts](192-flange_3_bolts/) |
+| tower_interior | `flange_1_bolts_ok.glb` | 4536 | `flange_1_bolts` | part | node transform | [#190 Tower Flange Bolts](190-flange_bolts/) |
+| tower_interior | `flange_2_bolts_loose.glb` | 4559 | `flange_2_bolts` | faulty: loose | node transform | [#190 Tower Flange Bolts](190-flange_bolts/) |
+| tower_interior | `flange_2_bolts_ok.glb` | 4547 | `flange_2_bolts` | healthy | node transform | [#190 Tower Flange Bolts](190-flange_bolts/) |
+| tower_interior | `flange_3_bolts_loose.glb` | 3616 | `flange_3_bolts` | faulty: loose | node transform | [#190 Tower Flange Bolts](190-flange_bolts/) |
+| tower_interior | `flange_3_bolts_ok.glb` | 3616 | `flange_3_bolts` | healthy | node transform | [#190 Tower Flange Bolts](190-flange_bolts/) |
 | tower_interior | `ground_controller.glb` | 26 | `ground_controller` | part | node transform | [#187 Tower Base Controller](187-ground_controller/) |
 | tower_interior | `ladder_1.glb` | 212 | `ladder_1` | part | local | [#182 Tower Ladder 1](182-ladder_1/) |
 | tower_interior | `ladder_2.glb` | 260 | `ladder_2` | part | local | [#183 Tower Ladder 2](183-ladder_2/) |
@@ -104,9 +104,9 @@ Source: `sorinar329/cognitive_robot_abstract_machine` branch `windturbine_mainte
 | tower_interior | `ladder_4.glb` | 212 | `ladder_4` | part | local | [#185 Tower Ladder 4](185-ladder_4/) |
 | tower_interior | `lift_car.glb` | 355 | `service_lift` | part | node transform | [#189 Service Lift Car](189-service_lift/) |
 | tower_interior | `lift_rails.glb` | 80 | `lift_rails` | part | local | [#188 Service Lift Rails](188-lift_rails/) |
-| tower_interior | `platform_1.glb` | 297 | `platform_1` | part | node transform | [#178 Tower Platform 1](178-platform_1/) |
-| tower_interior | `platform_2.glb` | 297 | `platform_2` | part | node transform | [#179 Tower Platform 2](179-platform_2/) |
+| tower_interior | `platform_1.glb` | 297 | `platform_1` | part | node transform | [#178 Tower Platform 1 and 2](178-platform_1_2/) |
+| tower_interior | `platform_2.glb` | 297 | `platform_2` | part | node transform | [#178 Tower Platform 1 and 2](178-platform_1_2/) |
 | tower_interior | `platform_3.glb` | 296 | `platform_3` | part | node transform | [#180 Tower Platform 3](180-platform_3/) |
 | tower_interior | `platform_4.glb` | 307 | `platform_4` | part | node transform | [#181 Tower Platform 4](181-platform_4/) |
 
-102 GLBs; 100 exported into 57 objects, 2 left out.
+102 GLBs; 100 exported into 54 objects, 2 left out.

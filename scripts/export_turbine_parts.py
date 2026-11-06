@@ -12,12 +12,14 @@ For every object in PARTS this writes, from scratch except for ``renders/``:
 assets/*.glb (node transform and placement baked into the vertices, origin at the
 centre of the root mesh's footprint), model.urdf, one model_<variant>.urdf per fault
 state, metadata.json (placement in the assembled turbine), README.md, NOTICE.md,
-LICENSE.txt and rights.json. It also writes collection.json, README.md and
+LICENSE.txt and rights.json. Near-identical parts share one object (``same_as``): the
+further parts keep their own meshes, model_<link>.urdf and fault states in its folder,
+so the catalogue shows them once and the turbine can still be rebuilt. It also writes collection.json, README.md and
 INVENTORY.md for the collection and removes object folders no longer in PARTS.
 Previews come from scripts/render_turbine.py (Blender) afterwards.
 
 Requires numpy. Ids are assigned in PARTS order from FIRST_ID, so append new parts
-at the end to keep ids stable. Intended to move next to the turbine's other
+at the end and leave None where a part was merged away, to keep ids stable. Intended to move next to the turbine's other
 exporters on windturbine_maintenance once the structure is agreed.
 """
 from __future__ import annotations
@@ -67,12 +69,14 @@ EXCLUDED = {"systems/technician.glb": "origin of the model unknown; cleared befo
             "site/ground.glb": "140 m terrain plane around the site; scenery, not a turbine part"}
 
 
-def part(slug, name, desc, *links, instances=None, rename=None, meshes=None):
+def part(slug, name, desc, *links, instances=None, rename=None, meshes=None, same_as=None):
     """``links``: turbine links in this object, root first. ``instances``: further
     turbine links that use the same geometry (the three blades). ``rename``: object
-    link name per turbine link. ``meshes``: only these source meshes per link."""
+    link name per turbine link. ``meshes``: only these source meshes per link.
+    ``same_as``: further single-link parts of the same design whose meshes differ in
+    size, exported into this object instead of objects of their own."""
     return dict(slug=slug, name=name, desc=desc, links=list(links), instances=instances or [],
-                rename=rename or {}, meshes=meshes or {})
+                rename=rename or {}, meshes=meshes or {}, same_as=same_as or [])
 
 
 PARTS = [
@@ -98,11 +102,17 @@ PARTS = [
     part("yaw_bearing", "Yaw Bearing", "Slewing ring on the tower top that the nacelle turns on.",
          "yaw_bearing"),
     # tower interior
-    *[part(f"platform_{k}", f"Tower Platform {k}",
-           (f"Grated rest platform under the flange at the top of tower section {k}, with railings and "
-            "openings for the ladder and the service lift." if k < 4 else
-            "Grated yaw deck at the top of the tower, with railings and openings for the ladder, "
-            "the service lift and the cable loop."), f"platform_{k}") for k in range(1, 5)],
+    part("platform_1_2", "Tower Platform 1 and 2",
+         "Grated rest platform under the flange at the top of tower sections 1 and 2, with railings and "
+         "openings for the ladder and the service lift.",
+         "platform_1", same_as=["platform_2"]),
+    None,  # platform_2, in platform_1_2
+    part("platform_3", "Tower Platform 3",
+         "Grated rest platform under the flange at the top of tower section 3, with railings and "
+         "openings for the ladder and the service lift.", "platform_3"),
+    part("platform_4", "Tower Platform 4",
+         "Grated yaw deck at the top of the tower, with railings and openings for the ladder, "
+         "the service lift and the cable loop.", "platform_4"),
     *[part(f"ladder_{k}", f"Tower Ladder {k}",
            f"Ladder with fall-arrest rail, power cables and a wall lamp, running up tower section {k}.", f"ladder_{k}") for k in range(1, 5)],
     part("cable_loop", "Tower Cable Loop",
@@ -112,9 +122,13 @@ PARTS = [
     part("lift_rails", "Service Lift Rails", "Guide and hoist wires of the service lift with their top anchor, running up the whole tower.",
          "lift_rails"),
     part("service_lift", "Service Lift Car", "Open service lift car with railings, a roof hoist and a control panel.", "service_lift"),
-    *[part(f"flange_{k}_bolts", f"Tower Flange {k} Bolts",
-           f"Ring of bolts with torque markings that joins tower section {k} to the section above.",
-           f"flange_{k}_bolts") for k in range(1, 4)],
+    part("flange_bolts", "Tower Flange Bolts",
+         "Bolt with torque markings from the rings that join the tower sections. The picture shows one bolt; "
+         "the object holds the complete rings of flanges 1 and 2 (132 bolts) and flange 3 (100 smaller bolts), "
+         "tight or loose.",
+         "flange_1_bolts", same_as=["flange_2_bolts", "flange_3_bolts"]),
+    None,  # flange_2_bolts, in flange_bolts
+    None,  # flange_3_bolts, in flange_bolts
     # nacelle
     part("nacelle_floor", "Nacelle Floor with Hatches",
          "Floor grating of the nacelle with a hinged tower access hatch and the crane hatch at the rear.",
@@ -134,7 +148,8 @@ PARTS = [
          "Transparent grease collector under the main bearing, normal or full.", "main_bearing_grease_collector"),
     part("main_shaft", "Main Shaft", "Low-speed rotor shaft between the hub flange and the gearbox.", "main_shaft"),
     part("shrink_disc_bolts", "Shrink Disc Bolts",
-         "Bolt ring of the shrink disc that clamps the main shaft to the gearbox, tight or loose.",
+         "Bolt of the shrink disc that clamps the main shaft to the gearbox. The picture shows one bolt; "
+         "the object holds the complete ring of 20, tight or loose.",
          "main_shaft_shrink_disc_bolts"),
     part("rotor_lock", "Rotor Lock with Pin",
          "Rotor lock block beside the main bearing with a locking pin that slides into the hub flange.",
@@ -150,7 +165,7 @@ PARTS = [
          "gearbox_sight_glass"),
     part("gearbox_filter_indicator", "Gearbox Filter Indicator",
          "Pop-up clogging indicator of the gearbox oil filter, normal or clogged.", "gearbox_filter_indicator"),
-    part("gearbox_cover_bolts", "Gearbox Cover Bolts", "Bolts of the gearbox inspection cover, complete or one missing.",
+    part("gearbox_cover_bolts", "Gearbox Cover Bolts", "Bolt of the gearbox inspection cover. The picture shows one bolt; the object holds all 8, complete or one missing.",
          "gearbox_cover_bolts"),
     part("gearbox_bushing", "Gearbox Torque Arm Bushing",
          "Elastomer bushing of the gearbox's left torque arm, intact or cracked.", "gearbox_bushing_left"),
@@ -424,9 +439,11 @@ class Exporter:
         self.objects = []
         owner = {}
         for index, spec in enumerate(PARTS):
+            if spec is None:
+                continue
             spec = dict(spec, id=str(FIRST_ID + index))
             spec["folder"] = f"{spec['id']}-{spec['slug']}"
-            for link in spec["links"] + spec["instances"]:
+            for link in spec["links"] + spec["instances"] + spec["same_as"]:
                 owner.setdefault(link, spec)
             self.objects.append(spec)
         self.owner = owner
@@ -460,6 +477,10 @@ class Exporter:
         points = np.concatenate([glb_vertices(self.t.glb(m)) @ frames[link][:3, :3].T + frames[link][:3, 3]
                                  for link, _, meshes, _ in links for m in meshes])
         obj["bounds"] = points.min(axis=0), points.max(axis=0)
+        obj["members"] = [dict(obj, slug=link, links=[link], instances=[], same_as=[], meshes={}, rename={},
+                               urdf=f"model_{link}.urdf") for link in obj["same_as"]]
+        for member in obj["members"]:
+            self.plan(member)
 
     def variants(self, obj):
         """Fault states of this object: {name: {"swap": {link: mesh}, "overlays": [overlay link]}}."""
@@ -494,9 +515,17 @@ class Exporter:
             if stale.name != "renders":
                 shutil.rmtree(stale) if stale.is_dir() else stale.unlink()
         (folder / "assets").mkdir()
+        assets = {}
+        for model in (obj, *obj["members"]):
+            self.write_models(model, folder, assets)
+        self.write_metadata(obj, folder)
+        self.write_notices(obj, folder)
+        (folder / "README.md").write_text(self.readme(obj))
+
+    def write_models(self, obj, folder, assets):
+        """The object's or member's meshes and its URDF per state."""
         root, offset = obj["root"], obj["offset"]
         shift = translation(-offset)
-        assets = {}
 
         def asset(mesh, link, transform):
             name = Path(mesh).stem + ".glb"
@@ -520,7 +549,7 @@ class Exporter:
                 transform = np.linalg.inv(w_host) @ self.t.world[overlay]
                 overlay_assets[overlay] = (host, asset(self.t.links[overlay]["mesh"], overlay, transform))
 
-        (folder / "model.urdf").write_text(self.urdf(obj, healthy))
+        (folder / obj.get("urdf", "model.urdf")).write_text(self.urdf(obj, healthy))
         for name, variant in obj["variants"].items():
             visuals = {link: list(paths) for link, paths in healthy.items()}
             for link, mesh in variant["swap"].items():
@@ -529,9 +558,6 @@ class Exporter:
                 host, path = overlay_assets[overlay]
                 visuals[host].append(path)
             (folder / f"model_{name}.urdf").write_text(self.urdf(obj, visuals, variant=name))
-        self.write_metadata(obj, folder)
-        self.write_notices(obj, folder)
-        (folder / "README.md").write_text(self.readme(obj))
 
     def joints(self, obj):
         result = []
@@ -626,9 +652,21 @@ class Exporter:
             result.append(entry)
         return result
 
-    def write_metadata(self, obj, folder):
-        lo, hi = obj["bounds"]
-        variants = {"healthy": {"urdf": "model.urdf"}}
+    def placements(self, obj):
+        """Where the object and its members sit in the turbine; members name their own URDF and bounds."""
+        result = self.instances(obj)
+        for member in obj["members"]:
+            lo, hi = member["bounds"]
+            result += [dict(entry, urdf=member["urdf"], bounds={"min": clean(lo), "max": clean(hi)})
+                       for entry in self.instances(member)]
+        return result
+
+    def fault_states(self, obj):
+        """Names of the fault states of the object and its members."""
+        return [name for model in (obj, *obj["members"]) for name in model["variants"]]
+
+    def variant_entries(self, obj):
+        variants = {}
         for name, variant in obj["variants"].items():
             entry = {"urdf": f"model_{name}.urdf", "fault": variant["fault"], "severity": variant["severity"],
                      "description": variant["description"]}
@@ -640,6 +678,14 @@ class Exporter:
                                       "link": obj["rename"].get(self.overlay_host(obj, o), self.overlay_host(obj, o))}
                                      for o in variant["overlays"]]
             variants[name] = entry
+        return variants
+
+    def write_metadata(self, obj, folder):
+        lo, hi = obj["bounds"]
+        variants = {"healthy": {"urdf": "model.urdf"}, **self.variant_entries(obj)}
+        for member in obj["members"]:
+            variants[member["root"]] = {"urdf": member["urdf"], "description": f"Healthy `{member['root']}`"}
+            variants.update(self.variant_entries(member))
         metadata = {
             "object": obj["slug"],
             "rootLink": obj["rename"].get(obj["root"], obj["root"]),
@@ -655,7 +701,7 @@ class Exporter:
                 "group": self.t.group[obj["root"]],
                 "frame": "world frame of windturbine_description (tower axis at the origin, ground at z = 0), "
                          "all joints at zero",
-                "instances": self.instances(obj),
+                "instances": self.placements(obj),
             },
             "variants": variants,
             "assetRights": self.rights(),
@@ -698,7 +744,7 @@ in this folder. Licence status: {LICENSE_STATUS}. Keep this NOTICE.md and LICENS
         lo, hi = obj["bounds"]
         size = hi - lo
         joints = self.joints(obj)
-        instances = self.instances(obj)
+        instances = self.placements(obj)
         lines = [f"# {obj['name']}", "", obj["desc"], "",
                  f"Part of the wind turbine model by {AUTHOR} (IEA-3.4-130-RWT dimensions), exported from "
                  f"`{SOURCE_REPO}` branch `{SOURCE_BRANCH}`. Generated by `scripts/export_turbine_parts.py`; "
@@ -721,6 +767,12 @@ in this folder. Licence status: {LICENSE_STATUS}. Keep this NOTICE.md and LICENS
                   "| healthy | `model.urdf` | — | As built. |"]
         lines += [f"| {name} | `model_{name}.urdf` | `{v['fault']}` ({v['severity']}) | {v['description']} |"
                   for name, v in obj["variants"].items()]
+        for member in obj["members"]:
+            size = member["bounds"][1] - member["bounds"][0]
+            lines.append(f"| {member['root']} | `{member['urdf']}` | — | `{member['root']}` as built, same design at "
+                         f"{size[0]:.3f} × {size[1]:.3f} × {size[2]:.3f} m. |")
+            lines += [f"| {name} | `model_{name}.urdf` | `{v['fault']}` ({v['severity']}) | {v['description']} |"
+                      for name, v in member["variants"].items()]
         lines += ["", "## Place in the turbine", "",
                   "`metadata.json` records where this object sits in the assembled turbine "
                   "(all joints at zero), so the turbine can be rebuilt from the objects.", "",
@@ -747,7 +799,7 @@ in this folder. Licence status: {LICENSE_STATUS}. Keep this NOTICE.md and LICENS
             "joints": joints, "frames": frames, "category": COLLECTION,
             "mobility": "articulated" if joints else "rigid", "added": ADDED,
             "fingerprint": {"type": obj["name"].lower(), "joints": kinds, "size_m": size},
-            "variants": ["healthy", *obj["variants"]],
+            "variants": ["healthy", *[member["root"] for member in obj["members"]], *self.fault_states(obj)],
             "variant_of": None, "folder": obj["folder"],
         }
 
@@ -777,7 +829,7 @@ in this folder. Licence status: {LICENSE_STATUS}. Keep this NOTICE.md and LICENS
         lines = ["# Wind turbine parts", "", CATEGORY["blurb"], "",
                  f"{len(self.objects)} objects from the wind turbine model by {AUTHOR} "
                  f"(`{SOURCE_REPO}`, branch `{SOURCE_BRANCH}`). Each folder holds `model.urdf`, one "
-                 "`model_<state>.urdf` per fault state, `assets/*.glb`, `metadata.json` with the part's placement "
+                 "`model_<state>.urdf` per fault state or further part of the same design, `assets/*.glb`, `metadata.json` with the part's placement "
                  "in the assembled turbine, `README.md`, `NOTICE.md`, `LICENSE.txt`, `rights.json` and "
                  "`renders/rest.webp` (plus `renders/open.webp` for parts with moving joints).", "",
                  "The folders are generated; do not edit them by hand. To regenerate after a new turbine export:", "",
@@ -792,7 +844,7 @@ in this folder. Licence status: {LICENSE_STATUS}. Keep this NOTICE.md and LICENS
             lines.append(f"| <img src=\"./{obj['folder']}/renders/rest.webp\" width=\"120\"> | "
                          f"**[#{obj['id']} {obj['name']}](./{obj['folder']}/)**<br>{obj['desc']} | "
                          f"{s[0]:.2f} × {s[1]:.2f} × {s[2]:.2f} | {len(joints) or 'none'} | "
-                         f"{', '.join(obj['variants']) or '—'} |")
+                         f"{', '.join(self.fault_states(obj)) or '—'} |")
         return "\n".join(lines) + "\n"
 
     def inventory(self):
